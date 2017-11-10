@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 17:52:09 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/10 17:52:10 by srossi           ###   ########.fr       */
+/*   Created: 2017/11/10 20:09:23 by srossi            #+#    #+#             */
+/*   Updated: 2017/11/10 20:29:07 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void *memmove(void *dst, const void *src, size_t len)
 {
-	size_t i;
-	unsigned char *str;
-
-	i = 0;
-	str = (unsigned char*)s;
-	while (i < n)
-	{
-		str[i] = '\0';
-		i++;
-	}
-	s = str;
+	
 }

@@ -127,11 +127,109 @@ int	test_memccpy(void)
 	return (0);
 }
 
+int	test_memmove(void)
+{
+	char src[30] = "abcdefghijklmnopqrstuvwxyz";
+	char dst[30] = "ceci est une chaine";
+	char src2[30] = "abcdefghijklmnopqrstuvwxyz";
+	char dst2[30] = "ceci est une chaine";
+	char src3[30] = "abcdefghijklmnopqrstuvwxyz";
+	char *dst3;
+	char src4[30] = "abcdefghijklmnopqrstuvwxyz";
+	char *dst4;
+	char src5[30] = "abcdefghijklmnopqrstuvwxyz";
+	char *dst5;
+	char src6[30] = "abcdefghijklmnopqrstuvwxyz";
+	char *dst6;
+
+	dst3 = &src3[4];
+	dst4 = &src4[4];
+	dst5 = &src5[0];
+	dst6 = &src6[0];
+
+	ft_putstr("---------- Test memmove ----------\n");
+	
+	memmove(dst, src, 4);
+	ft_memmove(dst2, src2, 4);
+	memmove(dst3, src3, 7);
+	ft_memmove(dst4, src4, 7);
+	memmove(dst5, src5, 7);
+	ft_memmove(dst6, src6, 7);
+	if (ft_strcmp(dst, dst2) == 0)
+		ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(dst3, dst4) == 0)
+		ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(dst5, dst6) == 0)
+		ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
+int	test_memchr(void)
+{
+	char s1[30] = "abcdefghijklmnopqrstuvwxyz";
+	char s2[30] = "";
+
+	ft_putstr("---------- Test memchr ----------\n");
+	if (ft_strcmp(memchr(s1, 'z', 26), ft_memchr(s1, 'z', 26)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (memchr(s1, 'z', 25) == ft_memchr(s1, 'z', 25))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (memchr(s1, 'f', 4) == ft_memchr(s1, 'f', 4))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(memchr(s1, 'f', 7), ft_memchr(s1, 'f', 7)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (memchr(s2, 'f', 7) == ft_memchr(s2, 'f', 7))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
+int	test_memcmp(void)
+{
+	char s1[30] = "abcdef";
+	char s2[30] = "abxdef";
+	char s3[30] = "";
+	char s4[30] = "";
+
+	ft_putstr("---------- Test memcmp ----------\n");
+	if (memcmp(s1, s2, 2) == ft_memcmp(s1, s2, 2))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (memcmp(s1, s2, 4) == ft_memcmp(s1, s2, 4))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (memcmp(s3, s4, 0) == ft_memcmp(s3, s4, 0))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
 int	main(void)
 {
-	test_memset();
-	test_bzero();
-	test_memcpy();
-	test_memccpy();
+//	test_memset();
+//	test_bzero();
+//	test_memcpy();
+//	test_memccpy();
+//	test_memmove();
+//	test_memchr();
+	test_memcmp();
 	return (0);
 }

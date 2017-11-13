@@ -222,14 +222,199 @@ int	test_memcmp(void)
 	return (0);
 }
 
+int	test_strlen(void)
+{
+	char s1[30] = "";
+	char s2[30] = "a";
+	char s3[30] = "ab";
+	char s4[30] = "abcde";
+	char s5[30] = "abcdefgijklmnopqrstuvwxyz";
+
+	ft_putstr("---------- Test strlen ----------\n");
+	if (strlen(s1) == ft_strlen(s1))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (strlen(s2) == ft_strlen(s2))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (strlen(s3) == ft_strlen(s3))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (strlen(s4) == ft_strlen(s4))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (strlen(s5) == ft_strlen(s5))
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+
+	return (0);
+}
+
+int	test_strdup(void)
+{
+	char s1[30] = "";
+	char s2[30] = "abcdef";
+
+	ft_putstr("---------- Test strdup ----------\n");
+	if (ft_strcmp(strdup(s1), ft_strdup(s1)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(strdup(s2), ft_strdup(s2)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
+int	test_strcpy(void)
+{
+	char src1[30] = "test abcde";
+	char dst1[30] = "";
+	char src2[30] = "test abcde";
+	char dst2[30] = "";
+	char src3[30] = "abcde";
+	char dst3[30] = "xxxxxxx";
+	char src4[30] = "abcde";
+	char dst4[30] = "xxxxxx";
+
+	ft_putstr("---------- Test strcpy ----------\n");
+	if (ft_strcmp(strcpy(dst1, src1), ft_strcpy(dst2, src2)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(strcpy(dst3, src3), ft_strcpy(dst4, src4)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
+int	test_strncpy(void)
+{
+	char src1[30] = "test abcde";
+	char dst1[30] = "";
+	char src2[30] = "test abcde";
+	char dst2[30] = "";
+	char src3[30] = "abcde";
+	char dst3[30] = "xxxxxxx";
+	char src4[30] = "abcde";
+	char dst4[30] = "xxxxxxx";
+	
+	ft_putstr("---------- Test strncpy ----------\n");
+	if (ft_strcmp(strncpy(dst1, src1, 2), ft_strncpy(dst2, src2, 2)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(strncpy(dst3, src3, 5), ft_strncpy(dst4, src4, 5)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
+int	test_strcat(void)
+{
+	char s1[30] = "abcde";	
+	char s2[30] = " fghij";	
+	char s3[30] = "abcde";	
+	char s4[30] = " fghij";	
+	char s5[30] = "abcde";	
+	char s6[30] = "";	
+	char s7[30] = "abcde";	
+	char s8[30] = "";	
+	ft_putstr("---------- Test strcat ----------\n");
+	if (ft_strcmp(strcat(s1, s2), ft_strcat(s3, s4)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(strcat(s5, s6), ft_strcat(s7, s8)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
+int	test_strncat(void)
+{
+	char s1[30] = "abcde";	
+	char s2[30] = " fghij";	
+	char s3[30] = "abcde";	
+	char s4[30] = " fghij";	
+	char s5[30] = "abcde";	
+	char s6[30] = "";	
+	char s7[30] = "abcde";	
+	char s8[30] = "";	
+	ft_putstr("---------- Test strncat ----------\n");
+	if (ft_strcmp(strncat(s1, s2, 8), ft_strncat(s3, s4, 8)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(strncat(s5, s6, 2), ft_strncat(s7, s8, 2)) == 0)
+			ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
+int	test_strlcat(void)
+{
+	char s1[20] = "abcdefghi";
+	char s2[10] = "123";	
+	char s3[20] = "abcdefghi";
+	char s4[10] = "123";	
+	char s5[10] = "ab";	
+	char s6[10] = "";	
+	char s7[10] = "ab";	
+	char s8[10] = "";	
+	char s9[20] = "abcde";	
+	char s10[20] = "12345678";	
+	char s11[20] = "abcde";	
+	char s12[20] = "12345678";	
+	char s13[20] = "abcde";	
+	char s14[20] = "12345678";	
+	char s15[20] = "abcde";	
+	char s16[20] = "12345678";	
+	ft_putstr("---------- Test strlcat ----------\n");
+	if (strlcat(s1, s2, 14) == ft_strlcat(s3, s4, 14) && ft_strcmp(s1, s3) == 0)
+		ft_putstr("OK \n");
+	else
+		ft_putstr("ERROR\n");
+	if (strlcat(s5, s6, 2) == ft_strlcat(s7, s8, 2) && ft_strcmp(s5, s7) == 0)
+		ft_putstr("OK \n");
+	else
+		ft_putstr("ERROR\n");
+	if (strlcat(s9, s10, 7) == ft_strlcat(s11, s12, 7) && ft_strcmp(s9, s11) == 0)
+		ft_putstr("OK \n");
+	else
+		ft_putstr("ERROR\n");
+	if (strlcat(s13, s14, 4) == ft_strlcat(s15, s16, 4) && ft_strcmp(s13, s15) == 0)
+		ft_putstr("OK \n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
 int	main(void)
 {
-//	test_memset();
-//	test_bzero();
-//	test_memcpy();
-//	test_memccpy();
-//	test_memmove();
-//	test_memchr();
+/*	test_memset();
+	test_bzero();
+	test_memcpy();
+	test_memccpy();
+	test_memmove();
+	test_memchr();
 	test_memcmp();
+	test_strlen();
+	test_strdup();
+	test_strcpy();
+	test_strncpy();
+	test_strcat();
+	test_strncat();
+*/	test_strlcat();
 	return (0);
 }

@@ -37,11 +37,11 @@ $(NAME):
 
 .PHONY : clean
 clean:
-		rm -f $(OS)
+		@rm -f $(OS)
 
 .PHONY : fclean
 fclean: clean
-		rm -f $(NAME)
+		@rm -f $(NAME)
 
 .PHONY : re
 re: fclean all

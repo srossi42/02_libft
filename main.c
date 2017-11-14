@@ -400,9 +400,33 @@ int	test_strlcat(void)
 	return (0);
 }
 
+int	test_strchr(void)
+{
+	char s1[30] = "abcdefghijklmnopqrstuvwxyz";	
+	char s2[30] = "abcdefghijklmnopqrstuvwxyz";	
+	char s3[30] = "";	
+	char s4[30] = "";	
+	char s5[30] = "abcde";	
+	char s6[30] = "abcde";	
+	ft_putstr("---------- Test strchr ----------\n");
+	if (ft_strcmp(strchr(s1, 'd'),  ft_strchr(s2, 'd')) == 0)
+		ft_putstr("OK \n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(strchr(s3, '\0'),  ft_strchr(s4, '\0')) == 0)
+		ft_putstr("OK \n");
+	else
+		ft_putstr("ERROR\n");
+	if (ft_strcmp(strchr(s5, '\0'),  ft_strchr(s6, '\0')) == 0)
+		ft_putstr("OK \n");
+	else
+		ft_putstr("ERROR\n");
+	return (0);
+}
+
 int	main(void)
 {
-/*	test_memset();
+	test_memset();
 	test_bzero();
 	test_memcpy();
 	test_memccpy();
@@ -415,6 +439,7 @@ int	main(void)
 	test_strncpy();
 	test_strcat();
 	test_strncat();
-*/	test_strlcat();
+	test_strlcat();
+	test_strchr();
 	return (0);
 }

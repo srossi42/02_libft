@@ -21,7 +21,8 @@ CS =	main.c \
 		ft_strcat.c \
 		ft_strncat.c \
 		ft_strlcat.c \
-		ft_strchr.c
+		ft_strchr.c \
+		ft_strrchr.c 
 	
 OS = $(CS:.c=.o)
 HEADDIR = libft.h

@@ -466,11 +466,11 @@ int	test_strrchr(void)
 int	test_strstr(void)
 {
 	char s1[30] = "aabzzzarzzzzztdcabcdefghijkxyz";	
-	char s2[30] = "zzztd";	
-	char s3[30] = "aabzzzarzzzzztdcabcdefghijkxyz";	
+	char s2[30] = "zzzztd";	
+	char s3[30] = "";	
 	char s4[30] = "";	
-	char s5[30] = "";	
-	char s6[30] = "";	
+	char s5[30] = "aabzzzarzzzzztdcabcdefghijkx";	
+	char s6[30] = "zziztd";	
 
 
 	ft_putstr("---------- Test strstr ----------\n");
@@ -479,17 +479,34 @@ int	test_strstr(void)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("ERROR\n");
+	if (ft_strcmp((strstr(s1, s3)),	ft_strstr(s1, s3)) == 0)
+		ft_putstr("OK\n");
+	else
+		ft_putstr("ERROR\n");
 	if (ft_strcmp((strstr(s3, s4)),	ft_strstr(s3, s4)) == 0)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("ERROR\n");
-	if (ft_strcmp((strstr(s5, s6)),	ft_strstr(s5, s6)) == 0)
+	if (strstr(s5, s6) == ft_strstr(s5, s6))
 		ft_putstr("OK\n");
 	else
 		ft_putstr("ERROR\n");
 	return (0);
 }
+ft_strnstr(void)
+{
+	char s1[30] = "";	
+	char s2[30] = "";	
+	char s3[30] = "";	
+	char s4[30] = "";	
+	char s5[30] = "";	
+	char s6[30] = "";	
 
+
+	ft_putstr("---------- Test strnstr ----------\n");
+
+	return (0);
+}
 int	main(void)
 {
 //	test_memset();
@@ -508,6 +525,7 @@ int	main(void)
 //	test_strlcat();
 //	test_strchr();
 //	test_strrchr();
-	test_strstr();
+//	test_strstr();
+//	test_strnstr();
 	return (0);
 }

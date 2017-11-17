@@ -5,34 +5,20 @@ char *ft_strstr(const char *s1, const char *s2)
 {
 	int i;
 	int j;
-	int mem;
-	char *t1;
-	char *t2;
 
 	i = 0;
-	j = 0;
-	t1 = (char *)s1;
-	t2 = (char *)s2;
-	if (t2[0] == '\0')
-		return (t1);
-	while (t1)
+	if (s2[0] == '\0')
+		return ((char *)s1);
+	while (s1[i] != '\0')
 	{
-		if (i != 0)
-			i = mem + 1;
-	 	while (t1[i] != t2[j])
-			i++; 
-		if (t1[i] == '\0')
-			return (NULL);
-		mem = i;
-		while (t1[i] == t2[j])
+		j = 0;
+		while (s1[i + j] == s2[j])
 		{
-			i++;
+			if (s2[j + 1] == '\0')
+				return ((char *)s1 + i);
 			j++;
 		}
-		if (t2[j] != '\0')
-			j = 0;
-		else 
-			return (&t1[mem]);
+		i++;
 	}
 	return (NULL);
 }

@@ -5,17 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/22 11:44:13 by srossi            #+#    #+#             */
-/*   Updated: 2017/08/22 11:44:26 by srossi           ###   ########.fr       */
+/*   Created: 2017/11/18 13:28:26 by srossi            #+#    #+#             */
+/*   Updated: 2017/11/18 14:02:32 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+#include "libft.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 
 	i = 0;
 	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 		i++;
-	return (*(s1 + i) - *(s2 + i));
+	return (*((unsigned char*)s1 + i) - *((unsigned char*)s2 + i));
 }

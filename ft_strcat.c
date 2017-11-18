@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/18 12:43:40 by srossi            #+#    #+#             */
+/*   Updated: 2017/11/18 18:37:39 by srossi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	int i;
 	int j;
-	
+
 	i = 0;
 	j = 0;
-
 	while (s1[j])
 		j++;
 	while (s2[i])
@@ -16,5 +27,6 @@ char *ft_strcat(char *restrict s1, const char *restrict s2)
 		i++;
 		j++;
 	}
+	s1[j] = '\0';
 	return (s1);
 }

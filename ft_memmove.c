@@ -6,17 +6,17 @@
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 20:09:23 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/10 20:29:07 by srossi           ###   ########.fr       */
+/*   Updated: 2017/11/18 12:58:17 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *ptr_dst;
-	unsigned char *ptr_src;
-	size_t i;
+	unsigned char	*ptr_dst;
+	unsigned char	*ptr_src;
+	size_t			i;
 
 	i = 0;
 	ptr_dst = (unsigned char *)dst;
@@ -25,7 +25,7 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len > 0)
 		{
-			ptr_dst[len-1] = ptr_src[len-1];
+			ptr_dst[len - 1] = ptr_src[len - 1];
 			len--;
 		}
 	}

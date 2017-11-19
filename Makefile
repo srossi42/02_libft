@@ -36,7 +36,12 @@ CS =	ft_putchar.c \
 		ft_memalloc.c \
 		ft_memdel.c \
 		ft_strnew.c \
-		ft_strdel.c
+		ft_strdel.c \
+		ft_strclr.c \
+		ft_striter.c \
+		ft_striteri.c \
+		ft_strmap.c \
+		ft_strmapi.c
 
 OS = $(CS:.c=.o)
 

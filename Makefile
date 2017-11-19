@@ -32,7 +32,11 @@ CS =	ft_putchar.c \
 		ft_isascii.c \
 		ft_isprint.c \
 		ft_toupper.c \
-		ft_tolower.c
+		ft_tolower.c \
+		ft_memalloc.c \
+		ft_memdel.c \
+		ft_strnew.c \
+		ft_strdel.c
 
 OS = $(CS:.c=.o)
 

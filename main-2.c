@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/08 16:38:53 by srossi            #+#    #+#             */
-/*   Updated: 2017/08/22 13:50:16 by srossi           ###   ########.fr       */
+/*   Created: 2017/11/10 17:53:00 by srossi            #+#    #+#             */
+/*   Updated: 2017/11/18 19:17:02 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_putstr(char const *str)
+int	test_memalloc(void)
 {
-	int i;
+   return(0);
+}   
 
-	i = 0;
-	while (*(str + i) != '\0')
-	{
-		ft_putchar(*(str + i));
-		i++;
-	}
+int	main(void)
+{
+	test_memalloc();
+	return (0);
 }

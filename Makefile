@@ -43,7 +43,9 @@ CS =	ft_putchar.c \
 		ft_strmap.c \
 		ft_strmapi.c \
 		ft_strequ.c \
-		ft_strnequ.c
+		ft_strnequ.c \
+		ft_strsub.c \
+		ft_strjoin.c
 
 OS = $(CS:.c=.o)
 

@@ -20,7 +20,7 @@ char	*ft_strnew(size_t size)
 	size_t	i;
 
 	i = 0;
-	if (!(str = (char *)malloc(sizeof(*str) * size)) && size != 0)
+	if (!(str = (char *)malloc(sizeof(*str) * (size + 1))) && size != 0)
 		return (NULL);
 	while (i < size)
 	{

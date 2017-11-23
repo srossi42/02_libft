@@ -3,7 +3,6 @@ NAME = libft.a
 CC = gcc
 
 CS =	ft_putchar.c \
-		ft_putstr.c \
 		ft_swap.c \
 	 	ft_memset.c \
 	 	ft_bzero.c \
@@ -46,7 +45,16 @@ CS =	ft_putchar.c \
 		ft_strnequ.c \
 		ft_strsub.c \
 		ft_strjoin.c \
-		ft_strtrim.c
+		ft_strtrim.c \
+		ft_strsplit.c \
+		ft_putchar.c \
+		ft_putstr.c \
+		ft_putendl.c \
+		ft_putnbr.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
 
 OS = $(CS:.c=.o)
 

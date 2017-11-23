@@ -22,6 +22,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	k = 0;
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[k] != '\0')
 		k++;
 	if (!(str = (char *)malloc(sizeof(*str) * (k + 1))))

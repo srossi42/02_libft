@@ -14,16 +14,6 @@
 #include <string.h>
 #include "libft.h"
 
-static int	f_strlen(const char *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 char		*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
@@ -32,8 +22,10 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	int		k;
 	int		l;
 
-	i = f_strlen(s1);
-	j = f_strlen(s2);
+	if (!s1 | !s2)
+		return (NULL);
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
 	k = 0;
 	l = 0;
 	if (!(str = (char *)malloc(sizeof(*str) * (i + j + 1))))

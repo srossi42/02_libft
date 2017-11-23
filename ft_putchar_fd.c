@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 17:53:00 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/21 18:32:49 by srossi           ###   ########.fr       */
+/*   Created: 2017/08/21 21:36:57 by srossi            #+#    #+#             */
+/*   Updated: 2017/08/21 22:00:35 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include "libft.h"
+#include <unistd.h>
 
-int	test_strtrim(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_putstr(ft_strtrim(""));
-	return(0);
-}   
-
-int	main(void)
-{
-	test_strtrim();
-	return (0);
+	write(fd, &c, 1);
 }

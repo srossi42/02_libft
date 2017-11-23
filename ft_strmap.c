@@ -20,6 +20,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	int		i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i] != '\0')
 		i++;
 	if (!(str = (char *)malloc(sizeof(*str) * (i + 1))))

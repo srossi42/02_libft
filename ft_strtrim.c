@@ -50,6 +50,8 @@ char	*ft_strtrim(char const *s)
 	char *s_cpy;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	start = ft_def_start((char *)s);
 	end = start;
 	while (s[i] != '\0')

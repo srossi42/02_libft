@@ -14,9 +14,7 @@ static	int	ft_count_words(char const *s, char c)
 		while (s[i] == c)
 			i++;
 		if (s[i] == '\0')
-		{
 			return (nb_words);
-		}
 		nb_words++;
 		while (s[i] != c && s[i] != '\0')
 			i++;
@@ -24,7 +22,7 @@ static	int	ft_count_words(char const *s, char c)
 	return (nb_words);
 }
 
-int	*ft_count_letters(char const *s, char c)
+static	int	*ft_count_letters(char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -49,12 +47,12 @@ int	*ft_count_letters(char const *s, char c)
 		}
 		ptr[j] = nb_letters;
 		j++;
-		i++;
 	}
 	return (ptr);
 }
 
-void	ft_fill(char ***ptr, const char *s, char c)
+
+static	void	ft_fill(char ***ptr, const char *s, char c)
 {
 	int i;
 	int	j;
@@ -86,12 +84,14 @@ char	**ft_strsplit(char const *s, char c)
 	int		i;
 	int		nb_words;
 	int		*nb_letters;
-	char	**ptr;
+	char		**ptr;
 
+	if (!s)
+		return (NULL);
 	nb_words = ft_count_words(s, c);
 	nb_letters = ft_count_letters(s, c);
 	i = 0;
-	if (!(ptr = (char**)malloc(sizeof(**ptr) * (nb_words + 1))))
+	if (!(ptr = (char**)malloc(sizeof(*ptr) * (nb_words + 1))))
 		return (NULL);
 	while (i < nb_words)
 	{	

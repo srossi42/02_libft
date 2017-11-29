@@ -68,7 +68,6 @@ CS =	ft_swap.c \
 		ft_lstelempos.c \
 		ft_lstmodify_cont.c
 
-
 OS = $(CS:.c=.o)
 
 HEADDIR = libft.h

@@ -6,11 +6,16 @@ void ft_lstaddtail(t_list **elem, t_list *new_elem)
 	t_list *tmp;
 
 	tmp = *elem;
-	if(new_elem && elem)
+	if(new_elem != NULL)
 	{
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-		tmp->next = new_elem;
+		if (*elem == NULL)
+			*elem = new_elem;
+		else
+		{
+			while (tmp->next != NULL)
+				tmp = tmp->next;
+			tmp->next = new_elem;
+		}
 		new_elem->next = NULL;
 	}
 }

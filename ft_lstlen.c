@@ -2,13 +2,19 @@
 
 int	ft_lstlen(t_list **alst)
 {
-	int i;
+	int 	i;
+	t_list	*tmp;
 
 	i = 0;
-	while (*alst)
+	tmp = *alst;
+	if (*alst != NULL)
 	{
-		(*alst) = (*alst)->next;
-		i++;
+
+		while (tmp)
+		{
+			tmp = tmp->next;
+			i++;
+		}
 	}
 	return (i);
 }

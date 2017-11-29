@@ -4,14 +4,20 @@ void ft_lstaddafter(t_list **elem, t_list *new_elem)
 {
 	t_list *tmp;
 
-	if (!elem || !new_elem)
-		return ;
-	if ((*elem)->next)
+	if (new_elem != NULL)
 	{
-		tmp = (*elem)->next;
-		(*elem)->next = new_elem;
-		new_elem->next = tmp;
+		if (*elem == NULL)
+			*elem = new_elem;
+		else
+		{
+			if ((*elem)->next)
+			{
+				tmp = (*elem)->next;
+				(*elem)->next = new_elem;
+				new_elem->next = tmp;
+			}
+			else
+				ft_lstaddtail(elem, new_elem);
+		}
 	}
-	else
-		ft_lstaddtail(elem, new_elem);
 }

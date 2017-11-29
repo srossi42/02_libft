@@ -86,4 +86,5 @@ void	ft_printlist(t_list *list);
 void	ft_lstaddbefore(t_list **elem, t_list *new_elem);
 int		ft_lstelempos(t_list *list, t_list *elem);
 int		ft_lstlen(t_list **alist);
+void	ft_lstmodify_cont(t_list *list, int elem_pos, void *content);
 #endif

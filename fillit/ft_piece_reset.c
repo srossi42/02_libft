@@ -6,7 +6,7 @@
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 18:08:17 by srossi            #+#    #+#             */
-/*   Updated: 2017/12/13 20:25:24 by srossi           ###   ########.fr       */
+/*   Updated: 2017/12/14 16:58:20 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_tetri	*ft_piece_reset(t_tetri *piece)
 		i = piece->t2.x;
 	if (piece->t3.x < piece->t2.x)
 		i = piece->t3.x;
-	ft_sub_pt((piece->t1.x - i), (piece->t1.y), piece);
+	ft_sub_pt(i, (piece->t1.y), piece);
 	ft_visual(piece);
 	ft_putchar('\n');
 /*	if (i != 0)

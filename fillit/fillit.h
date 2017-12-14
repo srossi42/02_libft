@@ -6,7 +6,7 @@
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:07:49 by srossi            #+#    #+#             */
-/*   Updated: 2017/12/13 20:23:28 by srossi           ###   ########.fr       */
+/*   Updated: 2017/12/14 17:34:45 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ void	ft_visual(t_tetri *piece); // a suppr ?
 char	**ft_grid(int size);
 int		placable(t_tetri *piece, char **tab, int x, int y);
 int		estValide(t_list *list, char **tab, int pos, int size, int nb_pieces);
-
+void	ft_display(int size, char**tab);
 #endif

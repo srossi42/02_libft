@@ -6,7 +6,7 @@
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 11:12:33 by srossi            #+#    #+#             */
-/*   Updated: 2017/12/13 20:24:55 by srossi           ###   ########.fr       */
+/*   Updated: 2017/12/14 14:02:50 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ t_list	*ft_read(char *argv, t_list *list)
 	c = 'A';
 	if ((fd = open(argv, O_RDONLY)) != -1)
 	{
-		while ((ret = read(fd, buf, BUF_SIZE)))
+		while ((ret = read(fd, buf, BUF_SIZE)) > 0)
 		{
 			ret_check = ret_check + ret;
 			buf[ret] = '\0';

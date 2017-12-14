@@ -6,7 +6,7 @@
 /*   By: jlemahie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 11:38:57 by jlemahie          #+#    #+#             */
-/*   Updated: 2017/12/13 20:30:03 by srossi           ###   ########.fr       */
+/*   Updated: 2017/12/14 18:58:58 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,43 @@ char	**ft_grid(int size)  // Creer le carre rempli de points
 
 int	placable(t_tetri *piece, char **tab, int x, int y)
 {
-//	tab = ft_regrid(4, tab);
+		ft_putstr("x vaut : ");
+		ft_putnbr(x);
+		ft_putchar('\n');
+		ft_putstr("y vaut : ");
+		ft_putnbr(y);
+		ft_putchar('\n');
+	/*	ft_putstr("x1 vaut : ");
+		ft_putnbr(piece->t1.x);
+		ft_putchar('\n');
+		ft_putstr("y1 vaut : ");
+		ft_putnbr(piece->t1.y);
+		ft_putchar('\n');
+		ft_putstr("x2 vaut : ");
+		ft_putnbr(piece->t2.x);
+		ft_putchar('\n');
+		ft_putstr("y2 vaut : ");
+		ft_putnbr(piece->t1.y);
+		ft_putchar('\n');
+		ft_putstr("x3 vaut : ");
+		ft_putnbr(piece->t3.x);
+		ft_putchar('\n');
+		ft_putstr("y1 vaut : ");
+		ft_putnbr(piece->t3.y);
+		ft_putchar('\n');
+		ft_putstr("x4 vaut : ");
+		ft_putnbr(piece->t4.x);
+		ft_putchar('\n');
+		ft_putstr("y4 vaut : ");
+		ft_putnbr(piece->t4.y);
+		ft_putchar('\n');*/
 		if (tab[x + piece->t1.x][y + piece->t1.y] == '.' &&
 				tab[x + piece->t2.x][y + piece->t2.y] == '.' &&
 				tab[x + piece->t3.x][y + piece->t3.y] == '.' &&
 				tab[x + piece->t4.x][y + piece->t4.y] == '.')
+		{
 			return (1);
+		}
 		return (0);
 }
 
@@ -125,33 +156,68 @@ int estValide (t_list *list, char **tab, int pos, int size, int nb_pieces)
 	if (tab[x][y] != '.')
 	{
 		ft_putstr("pouet \n");
-		return (estValide(list, tab, pos + 1, size, 1));
+		return (estValide(list, tab, pos + 1, size, nb_pieces));
 	}
 	while (pos < size*size && pieces_ok <= nb_pieces)
 	{
-		x = pos/size;
-		y = pos%size;
-		ft_putnbr(x);
-		ft_putnbr(y);
-		ft_putendl("BOUCLE WHILE");			
-		if (!list)
-				return (1);
+		y = pos/size;
+		x = pos%size;
+	//	ft_putendl("BOUCLE WHILE");			
+		ft_display(size, tab);
+		ft_putchar('\n');
+		if (!list || pieces_ok == nb_pieces)
+			return (1);
 		if (placable(((t_tetri *)(list->content)), tab, x, y))
 		{
-
+			ft_putendl("placable !!");
 			tab[x + ((t_tetri *)(list->content))->t1.x][y + ((t_tetri *)(list->content))->t1.y] = ((t_tetri *)list->content)->id;
 			tab[x + ((t_tetri *)(list->content))->t2.x][y + ((t_tetri *)(list->content))->t2.y] = ((t_tetri *)list->content)->id;
 			tab[x + ((t_tetri *)(list->content))->t3.x][y + ((t_tetri *)(list->content))->t3.y] = ((t_tetri *)list->content)->id;
 			tab[x + ((t_tetri *)(list->content))->t4.x][y + ((t_tetri *)(list->content))->t4.y] = ((t_tetri *)list->content)->id;
+			ft_display(size, tab);
 			pieces_ok++;
-			if ((estValide (list = list->next, tab, 0, size, 1)) == 1)
+			if (pieces_ok == nb_pieces)
+				return (1);
+			if ((estValide (list = list->next, tab, 0, size, nb_pieces)) == 1)
 				return (1);
 			else
 			{
+				ft_putendl("pas placable !!");
 				tab[x + (((t_tetri *)list->content))->t1.x][y + (((t_tetri *)list->content))->t1.y] = '.';
 				tab[x + (((t_tetri *)list->content))->t2.x][y + (((t_tetri *)list->content))->t2.y] = '.';
 				tab[x + (((t_tetri *)list->content))->t3.x][y + (((t_tetri *)list->content))->t3.y] = '.';
 				tab[x + (((t_tetri *)list->content))->t4.x][y + (((t_tetri *)list->content))->t4.y] = '.';
+				//CHECK A FAIRE ICI AVEC IMPRESSION des X et Y et des t.x / t.y
+				ft_putstr("x vaut : ");
+				ft_putnbr(x);
+				ft_putchar('\n');
+				ft_putstr("y vaut : ");
+				ft_putnbr(y);
+				ft_putchar('\n');
+				ft_putstr("x1 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t1.x);
+				ft_putchar('\n');
+				ft_putstr("y1 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t1.y);
+				ft_putchar('\n');
+				ft_putstr("x2 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t2.x);
+				ft_putchar('\n');
+				ft_putstr("y2 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t2.y);
+				ft_putchar('\n');
+				ft_putstr("x3 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t3.x);
+				ft_putchar('\n');
+				ft_putstr("y1 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t3.y);
+				ft_putchar('\n');
+				ft_putstr("x4 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t4.x);
+				ft_putchar('\n');
+				ft_putstr("y4 vaut : ");
+				ft_putnbr((((t_tetri *)list->content))->t4.y);
+				ft_putchar('\n');
 				pieces_ok--;
 //				tab = ft_regrid(size, tab);
 			}

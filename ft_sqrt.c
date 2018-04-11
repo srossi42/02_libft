@@ -5,22 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/15 19:26:41 by srossi            #+#    #+#             */
-/*   Updated: 2017/12/15 19:26:43 by srossi           ###   ########.fr       */
+/*   Created: 2017/08/07 22:06:03 by srossi            #+#    #+#             */
+/*   Updated: 2018/04/11 16:20:34 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+#include "libft.h"
+#include <stdio.h>
+
+int	ft_i_sqrt(int nb)
 {
 	int i;
+	int j;
 
-	i = 0;
-	if (nb > 0)
+	i = nb;
+	j = 1;
+	if (nb <= 0)
+		return (0);
+	while (i != j)
 	{
-		while (i * i < nb)
-			i++;
-		if (i * i == nb)
-			return (i);
+		i = j;
+		j = (i + nb / i) / 2;
 	}
-	return (0);
+return (i);
 }

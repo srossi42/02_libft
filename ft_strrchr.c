@@ -6,7 +6,7 @@
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 12:44:42 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/18 19:38:04 by srossi           ###   ########.fr       */
+/*   Updated: 2017/11/30 10:56:41 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char		*ft_strrchr(const char *s, int c)
 {
 	int		i;
 	int		mem;
-	char 	*str;
+	char	*str;
 
 	str = (char *)s;
 	i = 0;

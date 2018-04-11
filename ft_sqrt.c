@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:51:36 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 10:51:47 by srossi           ###   ########.fr       */
+/*   Created: 2017/12/15 19:26:41 by srossi            #+#    #+#             */
+/*   Updated: 2017/12/15 19:26:43 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
-
-void	ft_putnbr(int n)
+int	ft_sqrt(int nb)
 {
-	long l;
+	int i;
 
-	l = n;
-	if (l < 0)
+	i = 0;
+	if (nb > 0)
 	{
-		l = -l;
-		ft_putchar('-');
+		while (i * i < nb)
+			i++;
+		if (i * i == nb)
+			return (i);
 	}
-	if (l >= 10)
-	{
-		ft_putnbr(l / 10);
-		ft_putnbr(l % 10);
-	}
-	else
-		ft_putchar(l + 48);
+	return (0);
 }

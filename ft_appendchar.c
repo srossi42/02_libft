@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_appendchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:51:36 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 10:51:47 by srossi           ###   ########.fr       */
+/*   Created: 2018/01/05 14:01:08 by srossi            #+#    #+#             */
+/*   Updated: 2018/01/05 18:58:58 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_appendchar(char **s1, char c)
 {
-	long l;
+	char	*tmp;
+	int		i;
 
-	l = n;
-	if (l < 0)
+	if (*s1 && c)
 	{
-		l = -l;
-		ft_putchar('-');
+		i = ft_strlen(*s1);
+		tmp = ft_strnew(i + 1);
+		ft_strncpy(tmp, *s1, i);
+		tmp[i] = c;
+		ft_strdel(s1);
+		*s1 = ft_strdup(tmp);
+		ft_strdel(&tmp);
 	}
-	if (l >= 10)
+	else if (!s1 && c)
 	{
-		ft_putnbr(l / 10);
-		ft_putnbr(l % 10);
+		ft_putendl("chaine vide");
+		*s1 = ft_strnew(1);
+		*s1[0] = c;
 	}
-	else
-		ft_putchar(l + 48);
 }

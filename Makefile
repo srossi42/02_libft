@@ -1,9 +1,7 @@
-NAME = libft.a
+NAME = ../libftprintf.a
 
-CC = gcc
-
-CS =	ft_swap.c \
-	 	ft_memset.c \
+SRCS =	ft_swap.c \
+		ft_memset.c \
 	 	ft_bzero.c \
 		ft_memcpy.c \
 		ft_memccpy.c \
@@ -66,29 +64,36 @@ CS =	ft_swap.c \
 		ft_printlist.c \
 		ft_lstlen.c \
 		ft_lstelempos.c \
-		ft_lstmodify_cont.c
+		ft_lstmodify_cont.c \
+		ft_itoa_base_ll.c \
+		ft_itoa_base_ull.c \
+		ft_appendchar.c \
+		ft_strrev.c \
+		ft_max_int.c \
+		ft_min_int.c \
+		ft_val_abs.c
 
+FLAGS = -Wall -Wextra -Werror
 
-OS = $(CS:.c=.o)
+OBJ = $(SRCS:.c=.o)
 
-HEADDIR = libft.h
-
-CFLAGS = -I$(HEADDIR) -Wall -Wextra -Werror
-
-.PHONY : all
 all: $(NAME)
 
-$(NAME): $(OS)
-		@ar -rc $(NAME) $(OS)
-		@ranlib $(NAME)
+$(NAME): $(OBJ)
+		@ar rc $@ $^
+		@ranlib $@
+		@echo "Construction Librairie"
+
+%.o: %.c
+		@gcc $(FLAGS) -o $@ -c $<
 
 .PHONY : clean
 clean:
-		@rm -f $(OS)
+		@rm -rf $(OBJ)
 
 .PHONY : fclean
 fclean: clean
-		@rm -f $(NAME)
+		@rm -rf $(NAME)
 
 .PHONY : re
 re: fclean all

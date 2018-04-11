@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_min_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:51:36 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 10:51:47 by srossi           ###   ########.fr       */
+/*   Created: 2018/03/01 11:53:16 by srossi            #+#    #+#             */
+/*   Updated: 2018/03/01 14:26:16 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
+#include <limits.h>
 
-void	ft_putnbr(int n)
+int	ft_min_int(int nb_int, ...)
 {
-	long l;
+	int		argument;
+	int		int_min;
+	int		i;
+	va_list ap;
 
-	l = n;
-	if (l < 0)
+	i = 0;
+	int_min = INT_MAX;
+	if (nb_int <= 0)
+		return (-1);
+	va_start(ap, nb_int);
+	while (i < nb_int)
 	{
-		l = -l;
-		ft_putchar('-');
+		argument = va_arg(ap, int);
+		if (argument < int_min)
+			int_min = argument;
+		i++;
 	}
-	if (l >= 10)
-	{
-		ft_putnbr(l / 10);
-		ft_putnbr(l % 10);
-	}
-	else
-		ft_putchar(l + 48);
+	va_end(ap);
+	return (int_min);
 }

@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_val_abs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:51:36 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 10:51:47 by srossi           ###   ########.fr       */
+/*   Created: 2018/01/29 15:11:41 by srossi            #+#    #+#             */
+/*   Updated: 2018/02/26 11:31:03 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
-
-void	ft_putnbr(int n)
+unsigned long long	ft_val_abs(long long nb)
 {
-	long l;
+	unsigned long long ullong_nb;
 
-	l = n;
-	if (l < 0)
-	{
-		l = -l;
-		ft_putchar('-');
-	}
-	if (l >= 10)
-	{
-		ft_putnbr(l / 10);
-		ft_putnbr(l % 10);
-	}
-	else
-		ft_putchar(l + 48);
+	if (nb < 0)
+		return (ullong_nb = -nb);
+	return (ullong_nb = nb);
 }

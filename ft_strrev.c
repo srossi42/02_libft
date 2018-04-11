@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 10:51:36 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 10:51:47 by srossi           ###   ########.fr       */
+/*   Created: 2018/01/05 16:18:30 by srossi            #+#    #+#             */
+/*   Updated: 2018/01/29 15:15:21 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_strrev(char *str)
 {
-	long l;
+	int		i;
+	int		j;
+	char	c_tmp;
 
-	l = n;
-	if (l < 0)
+	if (str)
 	{
-		l = -l;
-		ft_putchar('-');
+		i = 0;
+		j = ft_strlen(str) - 1;
+		while (i < j)
+		{
+			c_tmp = str[i];
+			str[i] = str[j];
+			str[j] = c_tmp;
+			i++;
+			j--;
+		}
 	}
-	if (l >= 10)
-	{
-		ft_putnbr(l / 10);
-		ft_putnbr(l % 10);
-	}
-	else
-		ft_putchar(l + 48);
 }

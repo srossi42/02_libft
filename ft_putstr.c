@@ -6,7 +6,7 @@
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/08 16:38:53 by srossi            #+#    #+#             */
-/*   Updated: 2017/08/22 13:50:16 by srossi           ###   ########.fr       */
+/*   Updated: 2018/02/01 20:02:50 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,5 @@ void	ft_putstr(char const *str)
 	i = 0;
 	if (!str)
 		return ;
-	while (*(str + i) != '\0')
-	{
-		ft_putchar(*(str + i));
-		i++;
-	}
+	write(1, str, ft_strlen(str));
 }

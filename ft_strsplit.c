@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/30 10:58:14 by srossi            #+#    #+#             */
+/*   Updated: 2017/11/30 11:37:47 by srossi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 
-static	int	ft_count_words(char const *s, char c)
+static	int		ft_count_words(char const *s, char c)
 {
-	int i;
-	int nb_words;
+	int	i;
+	int	nb_words;
 
 	i = 0;
 	nb_words = 0;
@@ -22,12 +34,12 @@ static	int	ft_count_words(char const *s, char c)
 	return (nb_words);
 }
 
-static	int	*ft_count_letters(char const *s, char c)
+static	int		*ft_count_letters(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		nb_letters;
-	int		*ptr;
+	int	i;
+	int	j;
+	int	nb_letters;
+	int	*ptr;
 
 	i = 0;
 	j = 0;
@@ -51,10 +63,9 @@ static	int	*ft_count_letters(char const *s, char c)
 	return (ptr);
 }
 
-
 static	void	ft_fill(char ***ptr, const char *s, char c)
 {
-	int i;
+	int	i;
 	int	j;
 	int	word;
 
@@ -79,12 +90,12 @@ static	void	ft_fill(char ***ptr, const char *s, char c)
 	return ;
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		nb_words;
 	int		*nb_letters;
-	char		**ptr;
+	char	**ptr;
 
 	if (!s)
 		return (NULL);
@@ -94,7 +105,7 @@ char	**ft_strsplit(char const *s, char c)
 	if (!(ptr = (char**)malloc(sizeof(*ptr) * (nb_words + 1))))
 		return (NULL);
 	while (i < nb_words)
-	{	
+	{
 		if (!(ptr[i] = (char *)malloc(sizeof(**ptr) * (nb_letters[i] + 1))))
 			return (NULL);
 		i++;

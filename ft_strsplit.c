@@ -6,7 +6,7 @@
 /*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 10:58:14 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 11:37:47 by srossi           ###   ########.fr       */
+/*   Updated: 2018/05/01 10:32:42 by srossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ char			**ft_strsplit(char const *s, char c)
 	}
 	ptr[i] = NULL;
 	ft_fill(&ptr, s, c);
+	free(nb_letters);
 	return (ptr);
 }

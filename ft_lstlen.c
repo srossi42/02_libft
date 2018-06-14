@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: gvannest <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 11:04:57 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 11:06:06 by srossi           ###   ########.fr       */
+/*   Created: 2017/11/23 14:23:28 by gvannest          #+#    #+#             */
+/*   Updated: 2017/11/23 20:08:06 by gvannest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstlen(t_list **alst)
+int		ft_lstlen(t_list *list)
 {
-	int		i;
-	t_list	*tmp;
+	int k;
 
-	i = 0;
-	tmp = *alst;
-	if (*alst != NULL)
+	k = 0;
+	if (list == 0)
+		return (0);
+	while (list)
 	{
-		while (tmp)
-		{
-			tmp = tmp->next;
-			i++;
-		}
+		k++;
+		list = list->next;
 	}
-	return (i);
+	return (k);
 }

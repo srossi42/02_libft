@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: gvannest <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 20:09:23 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/18 12:58:17 by srossi           ###   ########.fr       */
+/*   Created: 2017/11/13 13:37:43 by gvannest          #+#    #+#             */
+/*   Updated: 2017/11/16 14:59:07 by gvannest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*ptr_dst;
-	unsigned char	*ptr_src;
 	size_t			i;
+	unsigned char	*dst1;
+	unsigned char	*src1;
 
+	dst1 = (unsigned char*)dst;
+	src1 = (unsigned char*)src;
 	i = 0;
-	ptr_dst = (unsigned char *)dst;
-	ptr_src = (unsigned char *)src;
-	if (src < dst)
-	{
-		while (len > 0)
+	if (dst1 < src1)
+		while (i < len)
 		{
-			ptr_dst[len - 1] = ptr_src[len - 1];
+			dst1[i] = src1[i];
+			i++;
+		}
+	else
+	{
+		i = len - 1;
+		while (len)
+		{
+			dst1[i] = src1[i];
+			i--;
 			len--;
 		}
 	}
-	else if (dst < src)
-	{
-		while (i < len)
-		{
-			ptr_dst[i] = ptr_src[i];
-			i++;
-		}
-	}
-	return (dst);
+	return ((void*)dst1);
 }

@@ -3,62 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: gvannest <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 11:06:53 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 11:12:40 by srossi           ###   ########.fr       */
+/*   Created: 2017/11/16 08:57:54 by gvannest          #+#    #+#             */
+/*   Updated: 2017/11/23 11:46:04 by gvannest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
-static	int	ft_nb_len(int n)
+static char	*ft_fill_itoa(int n, size_t k, char *str)
 {
-	int		nb_len;
+	long	l;
+	size_t	i;
 
-	nb_len = 0;
-	if (n == 0)
-		nb_len = 1;
-	while (n > 0 || n < 0)
-	{
-		n = n / 10;
-		nb_len++;
-	}
-	return (nb_len);
-}
-
-static	int	ft_sign(int n)
-{
+	l = n;
 	if (n < 0)
-		return (-1);
-	return (1);
+	{
+		l = -l;
+		i = k;
+		str[0] = '-';
+	}
+	else if (n == 0)
+		str[0] = '0';
+	else
+		i = k - 1;
+	while (l != 0)
+	{
+		str[i] = l % 10 + 48;
+		l = l / 10;
+		i--;
+	}
+	return (str);
 }
 
 char		*ft_itoa(int n)
 {
-	char	*ptr;
-	int		nb_len;
+	char	*str;
 	long	l;
-	int		ln_max;
+	size_t	k;
 
-	l = (long)n;
-	l = l * (ft_sign(n));
-	nb_len = ft_nb_len(n);
-	if (n < 0)
-		nb_len++;
-	ln_max = nb_len;
-	if (!(ptr = (char *)malloc(sizeof(*ptr) * (nb_len + 1))))
-		return (NULL);
-	while (nb_len > 0)
+	l = n;
+	k = 0;
+	str = 0;
+	while (l != 0)
 	{
-		nb_len--;
-		ptr[nb_len] = l % 10 + 48;
+		k++;
 		l = l / 10;
 	}
-	if (n < 0)
-		ptr[0] = '-';
-	ptr[ln_max] = '\0';
-	return (ptr);
+	if (n <= 0)
+	{
+		if (!(str = ft_strnew(k + 1)))
+			return (0);
+	}
+	else if (!(str = ft_strnew(k)))
+		return (0);
+	str = ft_fill_itoa(n, k, str);
+	return (str);
 }

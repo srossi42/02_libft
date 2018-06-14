@@ -3,41 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: gvannest <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/30 11:01:00 by srossi            #+#    #+#             */
-/*   Updated: 2017/11/30 12:01:06 by srossi           ###   ########.fr       */
+/*   Created: 2017/11/23 09:34:32 by gvannest          #+#    #+#             */
+/*   Updated: 2017/11/23 10:53:33 by gvannest         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*begin;
-	t_list	*tmp;
-	t_list	*head;
-	t_list	*elem;
+	t_list *current;
+	t_list *new;
+	t_list *current_new;
 
-	if (lst && *f)
+	new = (*f)(lst);
+	current = lst->next;
+	current_new = new;
+	if (lst == 0 || f == 0)
+		return (0);
+	while (current)
 	{
-		tmp = f(lst);
-		if (!(head = ft_lstnew(tmp->content, tmp->content_size)))
-			return (NULL);
-		begin = head;
-		lst = lst->next;
-		while (lst)
-		{
-			tmp = f(lst);
-			if (!(elem = ft_lstnew(tmp->content, tmp->content_size)))
-				return (NULL);
-			ft_lstaddtail(&begin, elem);
-			head = head->next;
-			lst = lst->next;
-		}
-		return (begin);
+		current_new->next = (*f)(current);
+		current_new = current_new->next;
+		current = current->next;
 	}
-	return (NULL);
+	current_new->next = NULL;
+	return (new);
 }
